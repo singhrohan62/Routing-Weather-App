@@ -1,9 +1,15 @@
 import React from 'react';
 
+import MessageComponent from './MessageComponent';
+
 class Home extends React.Component {
+
     render () {
         return(
-          <h4>Home Page</h4>
+          <div>
+
+            <MessageComponent/>
+          </div>
         );
     }
 }

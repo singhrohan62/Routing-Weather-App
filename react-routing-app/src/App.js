@@ -14,14 +14,17 @@ class App extends Component {
     return (
         <Router>
             <div>
-                <ul class="topnav">
-                    <li><Link to="/contact-us">Contact Us</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/">Home</Link></li>
-                </ul>
+
+
+                    <Link to="/contact-us" /* style={{fontWeight:'bold'}}   make link bold!!*/>Contact Us</Link>
+                    <Link to="/about">About</Link>
+                    <Link to="/" >Home</Link>
+
+
                 <Route exact path="/" component={Home}/>
                 <Route path="/about" component={About}/>
                 <Route path="/contact-us" component={Contact_Us}/>
+
             </div>
         </Router>
     );

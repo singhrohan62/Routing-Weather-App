@@ -3,7 +3,7 @@
 }
 
 ul.topnav{
-  list-style-type: none;background-color: #e0fff4;overflow: hidden;margin: 0px;
+  list-style-type: none;background-color: ghostwhite;overflow: hidden;margin: 0px;
 }
 
 ul.topnav li{float: right;}
@@ -20,9 +20,11 @@ ul.topnav li a{
   font-size: large;
 }
 
-ul.topnav li a:hover:not(.active){background-color: chartreuse;}
+ul.topnav li a:hover:not(.active){font-weight: bold;}
 
-ul.topnav li.right{background-color: greenyellow;font-family: "Segoe UI";float: left;}
+.active{background-color: greenyellow;}
+
+ul.topnav li.right{background-color:ghostwhite;font-family: "Segoe UI";float: left;font-weight: 600;font-size: large;padding: 14px 16px;}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -48,3 +50,4 @@ ul.topnav li.right{background-color: greenyellow;font-family: "Segoe UI";float: 
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+

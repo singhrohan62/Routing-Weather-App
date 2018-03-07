@@ -7,8 +7,12 @@ body {
   font-size: 30px;
 }
 
-h1{
+h4{
     font-family: "Segoe UI";
-    font-weight: 300;
+    font-weight: 500;
+}
 
+h3{
+    font-family: "Segoe UI";
+    font-weight: 600;
 }
