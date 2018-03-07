@@ -1,37 +1,34 @@
 import React from 'react';
 import FormComponent from './FormComponent';
-//import openweathermap from './openweathermap';// eslint-disable-next-line
 
-//import axios from 'axios';
 
-const OPEN_WEATHER_MAP_URL = 'http://api.openweathermap.org/data/2.5/weather?';
-
-const APP_ID = 'dceedfaf22fc0d7279dd4e219823de75';
 
 class MessageComponent extends React.Component {
 
 	constructor(props){
 		super(props);
 		this.state = {
-			/*location : 'Surat',
-            temp : '23',*/
+			location : 'Surat',
+            temp : '23',
 			error : null,
 			isLoaded : false,
-			items : {}
+			items : {},
+			name : {}
 		};
 		this.handleChange = this.handleChange.bind(this);
-		//this.getTemp = this.getTemp.bind(this);
 	}
 
 	componentDidMount() {
-		fetch('http://api.openweathermap.org/data/2.5/weather?q=London&appid=dceedfaf22fc0d7279dd4e219823de75')
+
+		fetch(`http://api.openweathermap.org/data/2.5/weather?q=Surat&units=metric&appid=dceedfaf22fc0d7279dd4e219823de75`)
 			.then(res => res.json())
 			.then(
 				(result) => {
 					console.log(result);
 					this.setState({
 						isLoaded: true,
-						items : result.main
+						items : result.main,
+						name : result.name
 					});
 
 				},
@@ -45,30 +42,7 @@ class MessageComponent extends React.Component {
 			)
 	}
 
-	/*
-    componentWillMount() {
-        console.log('componene will mount');
-        debugger;
-    }
-    componentDidMount() {
-		console.log('done mounting');
-        debugger;
-    }*/
-    /*getTemp (location) {
-        var encodedLocation = encodeURIComponent(location);
-        var requestUrl = `${OPEN_WEATHER_MAP_URL}q=${encodedLocation}&appid=${APP_ID}`;
 
-        return axios.get(requestUrl).then(function (res) {
-                if(res.data.cod && res.data.message){
-                    throw new Error(res.data.message);
-                } else{
-                    return res.data.main.temp;
-                }
-            },
-            function (res) {
-                throw new Error(res.data.message);
-            });
-    }*/
 
 	handleChange(location){
 
@@ -76,15 +50,31 @@ class MessageComponent extends React.Component {
             location: location
         });
 
-	/*this.getTemp(location).then(function (temp) {
+        var encodedLocation = encodeURIComponent(location);
 
-            this.setState({
-                location: location,
+        console.log(encodedLocation);
 
-            });
-        },function (errormsg) {
-            alert(errormsg);
-        });*/
+        fetch(`http://api.openweathermap.org/data/2.5/weather?units=metric&q=${encodedLocation}&appid=dceedfaf22fc0d7279dd4e219823de75`)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    console.log(result);
+                    this.setState({
+                        isLoaded: true,
+                        items : result.main,
+                        name : result.name
+                    });
+
+                },
+
+                (error) => {
+                    this.setState({
+                        isLoaded : true,
+                        error
+                    });
+                }
+            )
+
 	}
 
 	render () {
@@ -100,17 +90,15 @@ class MessageComponent extends React.Component {
 
 		else {
 			return(
-				<ul>
-					<li>{items.temp}</li>
-				</ul>
-			)
-		}
-		/*return (
 				<div>
 					<FormComponent onChange={this.handleChange}/>
-					<center><h2>Its {this.state.temp} C in {this.state.location}</h2></center>
+					<center><h2>Its {items.temp} degrees in {this.state.name}</h2></center>
 				</div>
-			)*/
+
+			)
+		}
+
+
 	}
 }
 
