@@ -2,13 +2,13 @@
   text-align: center;
 }
 
-ul.topnav{
-  list-style-type: none;background-color: ghostwhite;overflow: hidden;margin: 0px;
+ul{
+  list-style-type: none;background-color: inherit;opacity:90%;overflow: hidden;margin: 0px;
 }
 
-ul.topnav li{float: right;}
+ li{float: left;}
 
-ul.topnav li a{
+ li a{
   padding-top: 5px;
   display: block;
   padding: 14px 16px;
@@ -20,7 +20,7 @@ ul.topnav li a{
   font-size: large;
 }
 
-ul.topnav li a:hover:not(.active){font-weight: bold;}
+ li a:hover{background-color: greenyellow;}
 
 .active{background-color: greenyellow;}
 
