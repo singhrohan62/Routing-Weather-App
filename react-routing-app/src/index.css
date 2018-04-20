@@ -12,6 +12,16 @@ h4{
     font-weight: 500;
 }
 
+#header-class {
+    background-color: snow;
+    padding-left: 500px;
+
+}
+
+#image {
+    padding-right: 40px;
+}
+
 h3{
     font-family: "Segoe UI";
     font-weight: 600;

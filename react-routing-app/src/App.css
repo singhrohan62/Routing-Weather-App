@@ -46,6 +46,11 @@ ul.topnav li.right{background-color:ghostwhite;font-family: "Segoe UI";float: le
   font-size: large;
 }
 
+.button-submit {
+    display: block;
+    color: #222222;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

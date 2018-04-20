@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './App.css';
 class FormComponent extends React.Component {
 
 	constructor(props){
@@ -27,7 +27,7 @@ class FormComponent extends React.Component {
 						<input type="text" placeholder="Enter city name" align="center" ref={(input)=>{this.nameInput=input;}}/>
 					</center>
 					<center>
-						<button >Get Weather</button>
+						<button className="button-submit">Get Weather</button>
 					</center>
 				</form>
 			</div>
