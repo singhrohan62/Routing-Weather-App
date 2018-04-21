@@ -51,6 +51,10 @@ ul.topnav li.right{background-color:ghostwhite;font-family: "Segoe UI";float: le
     color: #222222;
 }
 
+#findWeather {
+    background: #ff6600;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

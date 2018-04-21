@@ -20,20 +20,21 @@ class App extends Component {
     return (
         <div>
 
-        <Router>
-            <div>
-        <ul>
-                   <li> <Link to="/contact-us" /* style={{fontWeight:'bold'}}   make link bold!!*/>Contact Us</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/" >Home</Link></li>
-        </ul>
+            <Router>
+                <div id="findWeather">
+                    <ul>
+                        <li> <Link to="/contact-us" /* style={{fontWeight:'bold'}}   make link bold!!*/>Contact Us</Link></li>
+                        <li><Link to="/about">About</Link></li>
+                        <li><Link to="/" >Home</Link></li>
+                    </ul>
 
-                <Route exact path="/" component={Home}/>
-                <Route path="/about" component={About}/>
-                <Route path="/contact-us" component={Contact_Us}/>
+                    <Route exact path="/" component={Home}/>
+                    <Route path="/about" component={About}/>
+                    <Route path="/contact-us" component={Contact_Us}/>
 
-            </div>
-        </Router>
+                </div>
+            </Router>
+
         </div>
     );
   }
