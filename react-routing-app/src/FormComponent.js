@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import './FormComponent.css';
 
 
 class FormComponent extends React.Component {
@@ -37,13 +38,17 @@ class FormComponent extends React.Component {
 			<div>
 			<MuiThemeProvider>
 
-			     <h3 align="center">Get Weather</h3>
-				<form onSubmit={this.onFormSubmit}>
-					<center>
-						<input type="text" placeholder="Enter city name" align="center" ref={(input)=>{this.nameInput=input;}}/>
-					</center>
 
-				</form>
+				<div id="form">
+					<h3 align="center">Get Weather</h3>
+					<form onSubmit={this.onFormSubmit}>
+						<center>
+							<input type="text" placeholder="Enter city name" align="center" ref={(input)=>{this.nameInput=input;}}/>
+						</center>
+
+					</form>
+				</div>
+
 				<center>
 					<RaisedButton label="Get Weather" secondary={true}  onClick={this.onButtonClick}/>
 				</center>
