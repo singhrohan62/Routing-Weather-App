@@ -1,12 +1,8 @@
 #form{
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background-color: greenyellow;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #eeeeff;
+    width: 100%;
+    align-content: center;
 }
 
-#button {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background-color: greenyellow;
-
-}
