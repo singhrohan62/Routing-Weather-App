@@ -1,7 +1,7 @@
 import React from 'react';
 import FormComponent from './FormComponent';
-
-
+import SnackBar from 'material-ui/Snackbar';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class MessageComponent extends React.Component {
 
@@ -13,7 +13,9 @@ class MessageComponent extends React.Component {
 			error : null,
 			isLoaded : false,
 			items : {},
-			name : {}
+			name : {},
+			open : false,
+			message : 'Nahi Chal raha',
 		};
 		this.handleChange = this.handleChange.bind(this);
 	}
@@ -28,7 +30,7 @@ class MessageComponent extends React.Component {
 					this.setState({
 						isLoaded: true,
 						items : result.main,
-						name : result.name
+						name : result.name,
 					});
 
 				},
@@ -47,7 +49,7 @@ class MessageComponent extends React.Component {
 	handleChange(location){
 
 	    this.setState({
-            location: location
+            location: location,
         });
 
         var encodedLocation = encodeURIComponent(location);
@@ -62,9 +64,10 @@ class MessageComponent extends React.Component {
                     this.setState({
                         isLoaded: true,
                         items : result.main,
-                        name : result.name
+                        name : result.name,
+                        open : true,
                     });
-
+				this.setState({message:`The temperature in ${this.state.name} is ${this.state.items.temp}`});
                 },
 
                 (error) => {
@@ -75,6 +78,12 @@ class MessageComponent extends React.Component {
                 }
             )
 
+	}
+
+	handleSnackBar = () => {
+		this.setState({
+			open : false,
+		})
 	}
 
 	render () {
@@ -91,8 +100,13 @@ class MessageComponent extends React.Component {
 		else {
 			return(
 				<div>
+					<MuiThemeProvider>
 					<FormComponent onChange={this.handleChange}/>
-					<center><h2>Its {items.temp} degrees in {this.state.name}</h2></center>
+					<SnackBar open={this.state.open} message={this.state.message}
+							  autoHideDuration = {4000}
+							  onRequestClose={this.handleSnackBar}
+					/>
+					</MuiThemeProvider>
 				</div>
 
 			)

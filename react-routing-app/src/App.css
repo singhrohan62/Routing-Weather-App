@@ -3,16 +3,15 @@
 }
 
 ul{
-  list-style-type: none;background-color: inherit;opacity:90%;overflow: hidden;margin: 0px;
+  list-style-type: none;background-color: #ddddff;opacity:90%;overflow: hidden;margin: 0px;
 }
 
- li{float: left;}
 
  li a{
   padding-top: 5px;
   display: block;
   padding: 14px 16px;
-  color: black;
+  color: #33cccc;
   text-align: center;
   text-decoration: none;
   font-family: "Segoe UI";
@@ -20,11 +19,6 @@ ul{
   font-size: large;
 }
 
- li a:hover{background-color: snow;}
-
-.active{background-color: greenyellow;}
-
-ul.topnav li.right{background-color:ghostwhite;font-family: "Segoe UI";float: left;font-weight: 600;font-size: large;padding: 14px 16px;}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -52,7 +46,7 @@ ul.topnav li.right{background-color:ghostwhite;font-family: "Segoe UI";float: le
 }
 
 #findWeather {
-    background: #ff6600;
+    background: #eeeeff;
 }
 
 @keyframes App-logo-spin {

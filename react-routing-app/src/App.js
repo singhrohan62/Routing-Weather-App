@@ -13,7 +13,7 @@ import {
 class App extends Component {
 
     componentWillMount () {
-        document.body.style.backgroundColor = '#19324c'
+        document.body.style.backgroundColor = '#eeeeff'
         //document.body.style.backgroundImage = "url('http://xinature.com/wp-content/uploads/2016/10/winter-snow-weather-storm-snowstorm-3d-wallpaper-download.jpg')";
     }
   render() {
@@ -23,9 +23,10 @@ class App extends Component {
             <Router>
                 <div id="findWeather">
                     <ul>
-                        <li> <Link to="/contact-us" /* style={{fontWeight:'bold'}}   make link bold!!*/>Contact Us</Link></li>
-                        <li><Link to="/about">About</Link></li>
-                        <li><Link to="/" >Home</Link></li>
+
+                        <li style={{float:"left"}}><Link to="/" >Home</Link></li>
+                        <li style={{float:"left"}}><Link to="/about">About</Link></li>
+                        <li style={{float:"left"}}> <Link to="/contact-us" /* style={{fontWeight:'bold'}}   make link bold!!*/>Contact Us</Link></li>
                     </ul>
 
                     <Route exact path="/" component={Home}/>
