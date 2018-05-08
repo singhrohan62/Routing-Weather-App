@@ -36,7 +36,7 @@ class FormComponent extends React.Component {
 		return(
 			<div>
 			<MuiThemeProvider>
-				<center><p>Check out the temperature of any city!</p></center>
+				<center><p>Type a city name and see the magic!</p></center>
 				<div id="form">
 					<h3 align="center">Get Weather</h3>
 					<form onSubmit={this.onFormSubmit}>
