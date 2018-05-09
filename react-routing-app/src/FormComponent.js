@@ -38,10 +38,10 @@ class FormComponent extends React.Component {
 			<MuiThemeProvider>
 				<center><p>Type a city name and see the magic!</p></center>
 				<div id="form">
-					<h3 align="center">Get Weather</h3>
+					<h3 align="center">Enter the city name</h3>
 					<form onSubmit={this.onFormSubmit}>
 						<center>
-							<input type="text" placeholder="Enter city name" align="center" ref={(input)=>{this.nameInput=input;}}/>
+							<input type="text" placeholder="eg: London" align="center" ref={(input)=>{this.nameInput=input;}}/>
 						</center>
 
 					</form>

@@ -1,7 +1,9 @@
 import React from 'react';
 import FormComponent from './FormComponent';
 import SnackBar from 'material-ui/Snackbar';
+import Dialog from 'material-ui/Dialog';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import FlatButton from 'material-ui/FlatButton';
 
 class MessageComponent extends React.Component {
 
@@ -15,6 +17,7 @@ class MessageComponent extends React.Component {
 			items : {},
 			name : {},
 			open : false,
+			openDialog : false,
 			message : 'Nahi Chal raha',
 		};
 		this.handleChange = this.handleChange.bind(this);
@@ -66,8 +69,9 @@ class MessageComponent extends React.Component {
                         items : result.main,
                         name : result.name,
                         open : true,
+                        openDialog : true,
                     });
-				this.setState({message:`The temperature in ${this.state.name} is ${this.state.items.temp}`});
+				this.setState({message:`You typed ${this.state.name} and the temperature is ${this.state.items.temp}`});
                 },
 
                 (error) => {
@@ -83,10 +87,26 @@ class MessageComponent extends React.Component {
 	handleSnackBar = () => {
 		this.setState({
 			open : false,
-		})
+		});
+	}
+
+	handleOpenDialog = () => {
+		this.setState({
+			openDialog : true
+		});
+	}
+
+	handleClosedDialog = () => {
+		this.setState({openDialog : false});
 	}
 
 	render () {
+
+		const actions = [
+			<FlatButton label="Cancel" primary={true}
+			onClick = {this.handleClosedDialog}
+			/>
+		];
 
 		const{ error, isLoaded, items} = this.state;
 		if(error){
@@ -96,12 +116,19 @@ class MessageComponent extends React.Component {
 			return <div>Loading...</div>
 		}
 
-
 		else {
 			return(
 				<div>
 					<MuiThemeProvider>
 					<FormComponent onChange={this.handleChange}/>
+					<Dialog
+					title = "Dadadadada"
+					actions = {actions}
+					modal = {true}
+					open = {this.state.openDialog}
+					>
+					lalalalalala
+					</Dialog>		
 					<SnackBar open={this.state.open} message={this.state.message}
 							  autoHideDuration = {4000}
 							  onRequestClose={this.handleSnackBar}
