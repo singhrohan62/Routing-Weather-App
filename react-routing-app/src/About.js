@@ -1,18 +1,19 @@
 import React from 'react';
+import './About.css';
 
 class About extends React.Component {
 
     render () {
         return(
-            <div>
+            <div id="abtcontainer">
                 <h4>About NowCaster</h4>
                 <p>
                 NowCaster is a simple web-application which 
                 helps to determine details about a city for 
-                instance, for London, it will render the 
+                instance, for the city London, it will render the 
                 details about the city London.
-                This web-application is made with love in 
-                react and material-ui!
+                This web-application is made with love in react
+                 and material-ui!
                 </p>
             </div>
 
