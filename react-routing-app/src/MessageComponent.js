@@ -15,6 +15,7 @@ class MessageComponent extends React.Component {
 			error : null,
 			isLoaded : false,
 			items : {},
+			coord : {},
 			name : {},
 			open : false,
 			openDialog : false,
@@ -33,6 +34,7 @@ class MessageComponent extends React.Component {
 					this.setState({
 						isLoaded: true,
 						items : result.main,
+						coord : result.coord,
 						name : result.name,
 					});
 
@@ -67,6 +69,7 @@ class MessageComponent extends React.Component {
                     this.setState({
                         isLoaded: true,
                         items : result.main,
+                        coord : result.coord,
                         name : result.name,
                         open : true,
                         openDialog : true,
@@ -103,7 +106,7 @@ class MessageComponent extends React.Component {
 	render () {
 
 		const actions = [
-			<FlatButton label="Cancel" primary={true}
+			<FlatButton label="Thanks" primary={true}
 			onClick = {this.handleClosedDialog}
 			/>
 		];
@@ -122,12 +125,14 @@ class MessageComponent extends React.Component {
 					<MuiThemeProvider>
 					<FormComponent onChange={this.handleChange}/>
 					<Dialog
-					title = "Dadadadada"
+					title = {this.state.location}
 					actions = {actions}
 					modal = {true}
-					open = {this.state.openDialog}
-					>
-					lalalalalala
+					open = {this.state.openDialog}>
+					The city of {this.state.location} has longitude 
+					 {this.state.coord.lon} and latitude {this.state.coord.lat}. 
+					The current temperature is {this.state.items.temp} and
+					humidity is {this.state.items.humidity}%.
 					</Dialog>		
 					<SnackBar open={this.state.open} message={this.state.message}
 							  autoHideDuration = {4000}
