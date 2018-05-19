@@ -4,6 +4,26 @@ import SnackBar from 'material-ui/Snackbar';
 import Dialog from 'material-ui/Dialog';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import {withStyles} from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+
+
+const styles = {
+	card : {
+		maxWidth : 300,
+	},
+	media : {
+		height : 0,
+		paddingTop : '56.25',//16:9
+	},
+}
+
 
 class MessageComponent extends React.Component {
 
@@ -111,6 +131,8 @@ class MessageComponent extends React.Component {
 			/>
 		];
 
+		const {classes} = this.props;
+
 		const{ error, isLoaded, items} = this.state;
 		if(error){
 			return <div>Error : {error.message}</div>
@@ -124,16 +146,34 @@ class MessageComponent extends React.Component {
 				<div>
 					<MuiThemeProvider>
 					<FormComponent onChange={this.handleChange}/>
-					<Dialog
-					title = {this.state.location}
+						
+						<Dialog
 					actions = {actions}
 					modal = {true}
 					open = {this.state.openDialog}>
-					The city of {this.state.location} has longitude 
+					
+					<Card className={classes.card}>
+					        <CardMedia
+					          className={classes.media}
+					          image="./CollegeID.jpg"
+					          title="Contemplative Reptile"
+					        />
+					        <CardContent>
+					          <Typography gutterBottom variant="headline" component="h2">
+					            {this.state.location}
+					          </Typography>
+					          <Typography component="p">
+					          The city of {this.state.location} has longitude 
 					 {this.state.coord.lon} and latitude {this.state.coord.lat}. 
 					The current temperature is {this.state.items.temp} and
 					humidity is {this.state.items.humidity}%.
-					</Dialog>		
+					          </Typography>
+					        </CardContent>
+
+					      </Card>
+					</Dialog>
+					      
+					    
 					<SnackBar open={this.state.open} message={this.state.message}
 							  autoHideDuration = {4000}
 							  onRequestClose={this.handleSnackBar}
@@ -149,4 +189,30 @@ class MessageComponent extends React.Component {
 }
 
 
-export default MessageComponent;
+MessageComponent.propTypes = {
+	classes : PropTypes.object.isRequired,
+}
+
+
+/*
+					<Dialog
+					title = {this.state.location}
+					actions = {actions}
+					modal = {true}
+					open = {this.state.openDialog}>
+					The city of {this.state.location} has longitude 
+					 {this.state.coord.lon} and latitude {this.state.coord.lat}. 
+					The current temperature is {this.state.items.temp} and
+					humidity is {this.state.items.humidity}%.
+					</Dialog>
+			    <CardActions>
+					          <Button size="small" color="primary">
+					            Share
+					          </Button>
+					          <Button size="small" color="primary">
+					            Learn More
+					          </Button>
+				</CardActions>
+*/
+
+export default withStyles(styles)(MessageComponent);
