@@ -14,6 +14,7 @@ class App extends Component {
 
     componentWillMount () {
         document.body.style.backgroundColor = '#eeeeff'
+       
     }
   render() {
     return (

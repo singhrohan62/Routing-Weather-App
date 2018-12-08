@@ -3,14 +3,10 @@ import FormComponent from './FormComponent';
 
 class MessageComponent extends React.Component {
 
-	constructor(props){
-		super(props);
-		this.state = {
+	state = {
 			error : null,
 			isLoaded : true,
 		};
-	}
-
 
 	handleChange =(location) => {
 
@@ -24,7 +20,6 @@ class MessageComponent extends React.Component {
                     });
 				alert(`You typed ${result.name} and the temperature is ${result.main.temp}`)
                 },
-
                 (error) => {
                     this.setState({
                         isLoaded : true,
@@ -36,12 +31,10 @@ class MessageComponent extends React.Component {
 	}
 
 	render () {
-
-		const{ error, isLoaded} = this.state;
-		if(error){
-			return <div>Error : {error.message}</div>
+		if(this.state.error){
+			return <div>Error : {this.state.error.message}</div>
 		}
-		else if(!isLoaded){
+		else if(!this.state.isLoaded){
 			return <div>Loading...</div>
 		}
 

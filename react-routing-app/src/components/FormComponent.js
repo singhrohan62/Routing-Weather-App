@@ -4,10 +4,6 @@ import '../static/css/FormComponent.css';
 
 class FormComponent extends React.Component {
 
-	constructor(props){
-		super(props);
-	}
-
 	onFormSubmit = (e) => {
 		e.preventDefault();
 		var location = this.nameInput.value;

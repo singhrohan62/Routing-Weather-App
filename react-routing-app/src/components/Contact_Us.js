@@ -1,11 +1,7 @@
 import React from 'react';
 
-class Contact_Us extends React.Component {
-    render () {
-        return(
-            <h4>Contact_Us Page</h4>
-        );
-    }
+const Contact_Us = () => {
+	return <div>Contact_Us</div>
 }
 
 export default Contact_Us;

@@ -1,10 +1,8 @@
 import React from 'react';
 import '../static/css/About.css';
 
-class About extends React.Component {
-
-    render () {
-        return(
+const About = () => {
+    return(
             <div id="abtcontainer">
                 <h4>About NowCaster</h4>
                 <p>
@@ -17,8 +15,8 @@ class About extends React.Component {
                 </p>
             </div>
 
-        );
-    }
+        )
 }
+
 
 export default About;
