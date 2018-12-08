@@ -14,7 +14,6 @@ class App extends Component {
 
     componentWillMount () {
         document.body.style.backgroundColor = '#eeeeff'
-        //document.body.style.backgroundImage = "url('http://xinature.com/wp-content/uploads/2016/10/winter-snow-weather-storm-snowstorm-3d-wallpaper-download.jpg')";
     }
   render() {
     return (

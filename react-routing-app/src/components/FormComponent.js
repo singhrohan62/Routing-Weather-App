@@ -6,11 +6,9 @@ class FormComponent extends React.Component {
 
 	constructor(props){
 		super(props);
-		this.onFormSubmit = this.onFormSubmit.bind(this);
-		this.onButtonClick = this.onButtonClick.bind(this);
 	}
 
-	onFormSubmit (e) {
+	onFormSubmit = (e) => {
 		e.preventDefault();
 		var location = this.nameInput.value;
 
@@ -20,7 +18,7 @@ class FormComponent extends React.Component {
 		}
         this.nameInput.value = ' ';
 	}
-	onButtonClick () {
+	onButtonClick = () => {
         var location = this.nameInput.value;
 
         if(location.length>0)
