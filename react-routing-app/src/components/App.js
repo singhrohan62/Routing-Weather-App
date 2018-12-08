@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Home from './Home';
+import Home from './MessageComponent';
 import About from './About';
 import Contact_Us from './Contact_Us';
-import './App.css';
+import '../static/css/App.css';
 import {
     BrowserRouter as Router,
     Link,

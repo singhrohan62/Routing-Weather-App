@@ -1,8 +1,6 @@
 import React from 'react';
-import './App.css';
-import RaisedButton from 'material-ui/RaisedButton';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import './FormComponent.css';
+import '../static/css/App.css';
+import '../static/css/FormComponent.css';
 
 class FormComponent extends React.Component {
 
@@ -29,13 +27,12 @@ class FormComponent extends React.Component {
         {
             this.props.onChange(this.nameInput.value);
         }
-        this.nameInput.value = ' ';
+        this.nameInput.value = '';
 	}
 
 	render() {
 		return(
 			<div>
-			<MuiThemeProvider>
 				<center><p>Type a city name and see the magic!</p></center>
 				<div id="form">
 					<h3 align="center">Enter the city name</h3>
@@ -46,10 +43,9 @@ class FormComponent extends React.Component {
 
 					</form>
 					<center>
-						<RaisedButton label="Get Weather" secondary={true}  onClick={this.onButtonClick}/>
+						<button  onClick={this.onButtonClick}>Go</button>
 					</center>
 				</div>
-			</MuiThemeProvider>
 			</div>
 		)
 	}
