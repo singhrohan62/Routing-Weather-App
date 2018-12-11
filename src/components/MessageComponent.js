@@ -10,7 +10,7 @@ class MessageComponent extends React.Component {
 
 	handleChange =(location) => {
 
-        fetch(`http://api.openweathermap.org/data/2.5/weather?units=metric&q=${location}&appid=dceedfaf22fc0d7279dd4e219823de75`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${location}&appid=dceedfaf22fc0d7279dd4e219823de75`)
             .then(res => res.json())
             .then(
                 (result) => {
